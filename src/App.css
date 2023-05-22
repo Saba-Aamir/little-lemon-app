@@ -1,38 +1,441 @@
-.App {
+.app-nav {
+  background-color: #fff;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 9rem;
+}
+
+.app-header {
+  padding: 0 1rem;
+}
+
+.hamburger {
+  display: none;
+}
+
+.mobile-nav {
+  border-top: 1px solid #495E57;
+}
+
+.mobile-navbar {
+  flex-direction: column;
+  padding: 0;
+}
+
+.mobile-nav .nav-item:not(:last-child) {
+  padding-bottom: 0.8rem;
+}
+
+.navbar {
+  display: flex;
+}
+
+.nav-item {
+  padding: 0 1rem;
+  list-style: none;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #333;
+  font-family: 'Karla-Bold';
+  &:hover {
+    color: #000;
+    text-decoration: underline;
+  }
+}
+
+.hamburger {
+  width: 30px;
+  height: 30px;
+}
+
+.hamburger img {
+  width: 100%;
+  height: 100%;
+}
+
+.hero-section {
+  padding: 2rem 10rem;
+  background-color: #495E57;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 350px;
+}
+
+.hero-heading {
+  font-family: 'Markazi-Bold';
+  font-size: 4rem;
+  color: #F4CE14;
+  margin: 0;
+  line-height: 0.8;
+}
+
+.hero-subheading {
+  font-family: 'Markazi';
+  font-size: 2.5rem;
+  color: #fff;
+  margin: 0 0 1rem 0;
+  font-weight: 400;
+}
+
+.hero-text {
+  font-family: 'Karla';
+  font-size: 1.2rem;
+  color: #fff;
+  width: 50%;
+}
+
+.hero-image-block {
+  height: 420px;
+  width: 480px;
+  position: relative;
+}
+
+.hero-image {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 16px;
+  position: absolute;
+  top: 30px;
+  right: 0;
+}
+
+.action-button {
+  width: 170px;
+  height: 50px;
+  font-size: 1.1rem;
+  font-family: 'Karla-Bold';
+  color: #495E57;
+  background-color: #F4CE14;
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+  &:hover {
+    background-color: #ffd400 !important;
+  }
+}
+
+.specials-section {
+  padding: 4rem 10rem;
+}
+
+.specials-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.specials-heading {
+  font-family: 'Markazi-Bold';
+  font-size: 3rem;
+  color: #333;
+  margin: 0;
+  line-height: 0.8;
+}
+
+.specials-card-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem 0;
+}
+
+.card {
+  width: 350px;
+  height: 450px;
+  background-color: #EDEFEE;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+}
+
+.card-image {
+  height: 250px;
+  width: auto;
+}
+
+.card-image img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-content {
+ padding: 0 1.5rem;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: 'Karla-Medium';
+}
+
+.card-price {
+  color: #EE9972;
+}
+
+.card-description {
+  font-family: 'Karla';
+  margin: 0;
+}
+
+.card-tagline {
+  font-family: 'Karla-XBold';
+  display: flex;
+  align-items: center;
+}
+
+.card-tagline img {
+  margin-left: 0.5rem;
+}
+
+.testimonials-section {
+  padding: 4rem 10rem;
+  background-color: #D9D9D9;
+}
+
+.testimonials-heading {
+  font-family: 'Markazi-Bold';
+  font-size: 3rem;
+  color: #333;
+  margin: 0;
+  line-height: 0.8;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.testimonial-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.testimonial {
+  background-color: #fff;
+  width: 250px;
+  height: 300px;
+  border-radius: 16px;
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.testimonial-rating {
+  padding: 1rem;
+}
+
+.testimonial-rating img {
+  width: 20px;
+  height: 20px;
+}
+
+.testimonial-content {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1rem ;
+}
+
+.testimonial-image {
+  width: 80px;
+  height: 80px;
+}
+
+.testimonial-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.testimonial-name {
+ padding-left: 0.5rem;
+ font-family: 'Karla-Medium';
+}
+
+.testimonial-review {
+  padding: 0 1rem;
+  font-family: 'Karla';
+}
+
+.about-section {
+  padding: 4rem 10rem 12.5rem 10rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.about-heading {
+  font-family: 'Markazi-Bold';
+  font-size: 3rem;
+  color: #333;
+  margin: 0;
+  line-height: 0.8;
+}
+
+.about-subheading {
+  font-family: 'Markazi';
+  font-size: 2rem;
+  font-weight: 400;
+  color: #333;
+  margin: 0;
+}
+
+.about-text {
+  font-family: 'Karla-Medium';
+  line-height: 1.5rem;
+  width: 50%;
+}
+
+.about-image-block {
+  position: absolute;
+}
+
+.about-image-1 {
+  width: 300px;
+  height: 350px;
+  object-fit: cover;
+  object-position: center;
+  position: relative;
+  right: -56.2rem;
+  top: 3rem;
+  border-radius: 16px;
+}
+
+.about-image-2 {
+  width: 300px;
+  height: 350px;
+  object-fit: cover;
+  object-position: center;
+  position: relative;
+  top: 6rem;
+  right: -25rem;
+  z-index: 99;
+  border-radius: 16px;
+}
+
+.footer-section {
+  padding: 4rem 10rem 2rem 10rem;
+  background-color: #D9D9D9;
+}
+
+.footer-content {
+  align-items: flex-start;
+  justify-content: space-between;
+  display: flex;
+}
+
+.footer-content ul {
+  padding: 0;
+}
+
+.footer-copyright {
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  display: flex;
+  padding-top: 1rem;
 }
 
-.App-link {
-  color: #61dafb;
+.navigation-heading, .contact-heading, .social-heading {
+  font-family: 'Karla-Medium';
+  font-size: 1.1rem;
+  color:#495E57;
+  margin: 0.5rem 0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.navigation-item, .contact-item, .social-item {
+  list-style: none;
+  font-family: 'Karla-Medium';
+  font-size: 1rem;
+  color: #333;
+  padding-bottom: 0.5rem;
+}
+
+.navigation-item a {
+  text-decoration: none;
+  color: #333;
+}
+
+.copyright-heading {
+  font-family: 'Karla';
+  font-size: 1rem;
+  color: #333;
+}
+
+@media only screen and (max-width: 500px) {
+  .hamburger {
+    display: block;
   }
-  to {
-    transform: rotate(360deg);
+  .navbar {
+    display: none;
+  }
+  .app-nav {
+    padding: 1rem;
+  }
+  .app-header {
+    padding: 0;
+  }
+  .hero-section, .specials-section, .testimonials-section, .about-section, .footer-section {
+    padding: 2rem 1rem;
+    flex-direction: column;
+  }
+  .hero-section {
+    height: auto;
+  }
+  .hero-text-block .action-button {
+    margin-top: 0.75rem;
+  }
+  .hero-text, .about-text {
+    width: 100%;
+  }
+  .hero-image-block {
+    height: 250px;
+    width: 100%;
+    padding-top: 2rem;
+  }
+  .hero-image, .about-image-block, .about-image-1, .about-image-2 {
+    position: static;
+  }
+  .specials-header {
+    flex-direction: column;
+  }
+  .specials-heading {
+    padding-bottom: 1.5rem;
+  }
+  .specials-card-container, .testimonial-container {
+    flex-direction: column;
+    padding: 0;
+  }
+  .card, .testimonial {
+    margin-top: 2rem;
+  }
+  .testimonial {
+    width: 100%;
+    height: auto;
+  }
+  .about-image-1, .about-image-2 {
+    width: 100%;
+    border-radius: 16px;
+    overflow: hidden;
+    margin-top: 1rem;
+  }
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .footer-content img {
+    padding-bottom: 1rem;
+  }
+  .footer-content ul, .navigation-heading, .contact-heading, .social-heading {
+    text-align: center;
+  }
+  .copyright-heading {
+    margin: 0;
   }
 }

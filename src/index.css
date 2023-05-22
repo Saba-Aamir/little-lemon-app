@@ -11,3 +11,36 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@font-face {
+  font-family: "Karla";
+  src: local("Karla"),
+    url("./assets/fonts/Karla-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Karla-Medium";
+  src: local("Karla"),
+    url("./assets/fonts/Karla-Medium.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Karla-Bold";
+  src: local("Karla"),
+    url("./assets/fonts/Karla-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Karla-XBold";
+  src: local("Karla"),
+    url("./assets/fonts/Karla-ExtraBold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Markazi";
+  src: url("./assets/fonts/MarkaziText-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Markazi-Medium";
+  src: url("./assets/fonts/MarkaziText-Medium.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Markazi-Bold";
+  src: url("./assets/fonts/MarkaziText-Bold.ttf") format("truetype");
+}
