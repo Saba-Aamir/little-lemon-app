@@ -367,6 +367,52 @@
   color: #333;
 }
 
+.form-section {
+  padding: 4rem 10rem;
+  background: #495E57;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-heading {
+  font-family: 'Markazi-Bold';
+  font-size: 3rem;
+  color: #fff;
+  margin: 0;
+  line-height: 0.8;
+  padding-bottom: 1.5rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+}
+
+.form-label {
+  font-family: 'Karla-Medium';
+  font-size: 1.2rem;
+  color: #fff;
+  padding-bottom: 0.5rem;
+}
+
+.form-field {
+  font-family: 'Karla-Medium';
+  font-size: 1rem;
+  padding: 0.7rem;
+  margin-bottom: 1rem;
+  color: #333;
+  border-radius: 10px;
+  border: none;
+}
+
+.form-button {
+  text-align: center;
+  padding-top: 2rem;
+}
+
 @media only screen and (max-width: 500px) {
   .hamburger {
     display: block;
@@ -384,13 +430,16 @@
     padding: 2rem 1rem;
     flex-direction: column;
   }
+  .form-section {
+    padding: 4rem 2rem;
+  }
   .hero-section {
     height: auto;
   }
   .hero-text-block .action-button {
     margin-top: 0.75rem;
   }
-  .hero-text, .about-text {
+  .hero-text, .about-text, .form {
     width: 100%;
   }
   .hero-image-block {
