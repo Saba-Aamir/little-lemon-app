@@ -376,7 +376,16 @@
   align-items: center;
 }
 
-.form-heading {
+.confirmed-booking-section {
+  padding: 8rem 10rem;
+  background: #495E57;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-heading, .confirmed-booking-heading {
   font-family: 'Markazi-Bold';
   font-size: 3rem;
   color: #fff;
@@ -391,11 +400,17 @@
   width: 40%;
 }
 
-.form-label {
+.form-label, .confirmed-booking-text {
   font-family: 'Karla-Medium';
   font-size: 1.2rem;
   color: #fff;
   padding-bottom: 0.5rem;
+}
+
+.confirmed-booking-text {
+  width: 50%;
+  text-align: center;
+  line-height: 1.4;
 }
 
 .form-field {
@@ -411,6 +426,10 @@
 .form-button {
   text-align: center;
   padding-top: 2rem;
+}
+
+.confirmed-booking-button {
+  margin-top: 1.5rem;
 }
 
 @media only screen and (max-width: 500px) {
@@ -430,8 +449,11 @@
     padding: 2rem 1rem;
     flex-direction: column;
   }
-  .form-section {
+  .form-section, .confirmed-booking-section {
     padding: 4rem 2rem;
+  }
+  .confirmed-booking-heading {
+    text-align: center;
   }
   .hero-section {
     height: auto;
@@ -439,7 +461,7 @@
   .hero-text-block .action-button {
     margin-top: 0.75rem;
   }
-  .hero-text, .about-text, .form {
+  .hero-text, .about-text, .form, .confirmed-booking-text {
     width: 100%;
   }
   .hero-image-block {

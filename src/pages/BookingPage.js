@@ -1,29 +1,28 @@
 import React, { useReducer } from 'react';
 import BookingForm from "../components/BookingForm";
+import { fetchAPI, submitAPI } from '../utils/api';
+import { useNavigate } from 'react-router-dom';
 
 const BookingPage = () => {
 
-    const initialTimes = ['Select date to view slots'];
+  const navigate = useNavigate();
 
-    function timesReducer(times, action) {
-        switch (action.type) {
-          case 'updated': {
-            return [
-                '17:00',
-                '18:00',
-                '19:00',
-                '20:00',
-                '21:00',
-                '22:00'
-            ];
-          }
-          default: {
-            throw Error('Unknown action: ' + action.type);
-          }
+  const initializeTimes = () => {
+    return fetchAPI(new Date());
+  };  
+
+  function timesReducer(times, action) {
+      switch (action.type) {
+        case 'updated': {
+          return fetchAPI(action.selectedDate);
+        }
+        default: {
+          throw Error('Unknown action: ' + action.type);
         }
       }
+    }
 
-    const [times, dispatch] = useReducer(timesReducer, initialTimes);
+    const [times, dispatch] = useReducer(timesReducer, initializeTimes());
 
     function handleUpdateTimes(selectedDate) {
         dispatch({
@@ -32,13 +31,16 @@ const BookingPage = () => {
         });
     }
 
-    const handleSubmit = () => {
-        console.log('Form Submitted!');
+    const submitForm = (formData) => {
+        const response = submitAPI(formData);
+        if (response) {
+          navigate('/success');
+        }
     };
 
     return (
         <main>
-            <BookingForm availableTimes={times} setAvailableTimes={handleUpdateTimes} onSubmit={handleSubmit}/>
+            <BookingForm availableTimes={times} setAvailableTimes={handleUpdateTimes} submitForm={submitForm}/>
         </main>
     );
 }
