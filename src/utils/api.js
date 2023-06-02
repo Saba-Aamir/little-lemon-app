@@ -23,5 +23,6 @@ export const fetchAPI = function(date) {
 };
 
 export const submitAPI = function(formData) {
+    console.log(formData, 'submit API');
     return true;
 };

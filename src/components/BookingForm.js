@@ -1,28 +1,38 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Formik, Field, Form } from 'formik';
 import Button from './Button';
 
 const BookingForm = ({ availableTimes, setAvailableTimes, submitForm }) => {
     const [resDate, setResDate] = useState(new Date().toJSON().slice(0, 10));
-    const [resTime, setResTime] = useState('');
+    const [resTime, setResTime] = useState(availableTimes[0]);
     const [guestNum, setGuestNum] = useState('1');
     const [occasion, setOccasion] = useState('Birthday');
+    const [validForm, setValidForm] = useState(false);
+
+    useEffect(() => {
+        if ((resDate !== '') && (resTime !== '') && (guestNum > 0 && guestNum < 11) && (occasion === 'Birthday' || occasion === 'Anniversary')) {
+            setValidForm(true);
+        }
+        else setValidForm(false);
+    },[resDate, resTime, guestNum, occasion]);
 
     const handleSubmit = () => {
-        const formData = {
-            'resDate': resDate,
-            'resTime': resTime,
-            'guestNum': guestNum,
-            'occasion': occasion
-        };
-        submitForm(formData);
+        if (validForm) {
+            const formData = {
+                'resDate': resDate,
+                'resTime': resTime,
+                'guestNum': guestNum,
+                'occasion': occasion
+            };
+            submitForm(formData);
+        }
     };
 
     return (
         <section className="form-section">
             <h1 className="form-heading">Reserve a Table</h1>
             <Formik initialValues={{}} onSubmit={handleSubmit}>
-                <Form className='form'>
+                <Form className='form' data-testid="booking-form">
                 <label className='form-label' htmlFor="resDate">Choose Date</label>
                 <Field className='form-field' id="resDate" type="date" value={resDate} onChange={e => { setResDate(e.target.value); setAvailableTimes(new Date(e.target.value)); }} min={new Date().toJSON().slice(0, 10)}/>
         
@@ -41,7 +51,7 @@ const BookingForm = ({ availableTimes, setAvailableTimes, submitForm }) => {
                 </Field>
 
                 <section className='form-button'>
-                    <Button type="submit" text="Create Reservation" style={{width: '100%' }}/>
+                    <Button type="submit" text="Create Reservation" style={{width: '100%' }} disabled={!validForm}/>
                 </section>
                 </Form>
             </Formik>

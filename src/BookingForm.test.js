@@ -1,10 +1,11 @@
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, fireEvent } from "@testing-library/react";
 import BookingForm from "./components/BookingForm";
 import { fetchAPI } from "./utils/api";
 
 test('Renders the BookingForm heading', () => {
-    render(<BookingForm />);
-    const headingElement = screen.getByText("Reserve a Table");
+    let times = ['10:00', '10:30'];
+    const { getByText } = render(<BookingForm availableTimes={times}/>);
+    const headingElement = getByText("Reserve a Table");
     expect(headingElement).toBeInTheDocument();
 });
 
@@ -30,4 +31,40 @@ test('BookingForm should display the updated times on date change', () => {
   rerender(<BookingForm availableTimes={times} setAvailableTimes={handleUpdateTimes}/>);
   const updatedTimes = getByTestId('time-slot-list');
   expect(initialLength).not.toEqual(updatedTimes.children.length);
+});
+
+test('BookingForm should not submit if field values are invalid', () => {
+  let times = ['10:00', '10:30'];
+  function handleUpdateTimes() {
+    times = fetchAPI(new Date('12-12-23'));
+  }
+  const submitForm = jest.fn();
+  const { getByLabelText, getByRole } = render(<BookingForm availableTimes={times} setAvailableTimes={handleUpdateTimes} submitForm={submitForm}/>);
+  const guestInput = getByLabelText(/Number of Guests/);
+  fireEvent.change(guestInput, {target: { value: 0 }});
+  const occasionInput = getByLabelText(/Select Occasion/);
+  fireEvent.change(occasionInput, {target: { value: '' }});
+  const submitBtn = getByRole('button');
+  fireEvent.click(submitBtn);
+  expect(submitForm).not.toHaveBeenCalled();
+});
+
+test('BookingForm should submit if field values are valid', () => {
+  let times = ['10:00', '10:30'];
+  function handleUpdateTimes() {
+    times = fetchAPI(new Date('12-12-23'));
+  }
+  const submitForm = jest.fn();
+  const { getByLabelText, getByTestId } = render(<BookingForm availableTimes={times} setAvailableTimes={handleUpdateTimes} submitForm={submitForm}/>);
+  const dateInput = getByLabelText(/Choose Date/);
+  fireEvent.change(dateInput, {target: { value: '12-12-23' }});
+  const timeInput = getByLabelText(/Choose Time/);
+  fireEvent.change(timeInput, {target: { value: '10:30' }});
+  const guestInput = getByLabelText(/Number of Guests/);
+  fireEvent.change(guestInput, {target: { value: 2 }});
+  const occasionInput = getByLabelText(/Select Occasion/);
+  fireEvent.change(occasionInput, {target: { value: 'Anniversary' }});
+  const form = getByTestId('booking-form');
+  fireEvent.submit(form);
+  expect(submitForm).not.toHaveBeenCalled();
 });
